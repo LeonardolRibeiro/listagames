@@ -1,7 +1,7 @@
 package com.leolaia.listagames.dto;
 
 import com.leolaia.listagames.entities.Game;
-import jakarta.persistence.Column;
+import com.leolaia.listagames.projections.GameMinProjection;
 
 public class GameMinDto {
 
@@ -19,6 +19,14 @@ public class GameMinDto {
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
+    }
+
+    public GameMinDto(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
